@@ -1,25 +1,463 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width,
+initial-scale=1,
+maximum-scale=1,
+user-scalable=no">
+
 <title>Primordial Park</title>
-<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-<div id="topbar">
-  <span>🪙 Coins: <b id="coins">10000</b></span>
-  <span>🧬 DNA: <b id="dna">400</b></span>
-  <span>💵 Cash: <b id="cash">50</b></span>
+
+<div id="rotateMessage">
+
+Please rotate your device.
+
 </div>
+
 
 <div id="game">
-  <h1>PRIMORDIAL PARK</h1>
-  <p>Starter build with fullscreen landscape support.</p>
-  <button id="collect">Collect 100 Coins</button>
+
+<!-- TOP BAR -->
+
+<div id="topBar">
+
+<div class="resource">
+
+DNA
+
+<span id="dna">
+
+400
+
+</span>
+
 </div>
 
-<script src="data/dinosaurs.js"></script>
-<script src="main.js"></script>
+<div class="resource">
+
+Food
+
+<span id="food">
+
+5000
+
+</span>
+
+</div>
+
+<div class="resource">
+
+Coins
+
+<span id="coins">
+
+10000
+
+</span>
+
+</div>
+
+<div class="resource">
+
+Cash
+
+<span id="cash">
+
+50
+
+</span>
+
+</div>
+
+<div class="resource">
+
+Level
+
+<span id="level">
+
+1
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- WORLD -->
+
+<div id="worldContainer">
+
+<div id="world">
+
+
+<!-- Grass -->
+
+<div id="grass"></div>
+
+
+
+<!-- Water -->
+
+<div id="lake"></div>
+
+
+
+<!-- Buildings -->
+
+<div id="buildingsLayer"></div>
+
+
+
+<!-- Decorations -->
+
+<div id="decorationsLayer"></div>
+
+
+
+<!-- Dinosaurs -->
+
+<div id="dinosaursLayer"></div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- LEFT MENU -->
+
+<div id="leftMenu">
+
+<button id="missionsBtn">
+
+MISSIONS
+
+</button>
+
+<button id="eventsBtn">
+
+EVENTS
+
+</button>
+
+<button id="battleBtn">
+
+BATTLE
+
+</button>
+
+</div>
+
+
+
+
+<!-- RIGHT MENU -->
+
+<div id="rightMenu">
+
+<button id="marketBtn">
+
+MARKET
+
+</button>
+
+<button id="fusionBtn">
+
+FUSION
+
+</button>
+
+<button id="championBtn">
+
+CHAMPION
+
+</button>
+
+</div>
+
+
+
+
+
+<!-- BOTTOM MENU -->
+
+<div id="bottomMenu">
+
+<button id="roadBtn">
+
+ROADS
+
+</button>
+
+<button id="buildBtn">
+
+BUILD
+
+</button>
+
+<button id="collectBtn">
+
+COLLECT
+
+</button>
+
+</div>
+
+
+
+
+<!-- MARKET -->
+
+<div id="marketPanel" class="panel hidden">
+
+<h1>
+
+MARKET
+
+</h1>
+
+
+<div id="marketTabs">
+
+<button>
+
+Dinosaurs
+
+</button>
+
+<button>
+
+Buildings
+
+</button>
+
+<button>
+
+Decorations
+
+</button>
+
+</div>
+
+
+<div id="marketContent">
+
+</div>
+
+<button class="close">
+
+X
+
+</button>
+
+</div>
+
+
+
+
+
+
+<!-- BATTLE -->
+
+<div id="battlePanel" class="panel hidden">
+
+<h1>
+
+Battle Stage
+
+</h1>
+
+
+<div id="battleStageNumber">
+
+1
+
+</div>
+
+
+<div id="enemyTeam">
+
+</div>
+
+
+<div id="playerTeam">
+
+</div>
+
+
+<button id="startBattle">
+
+START
+
+</button>
+
+
+<button class="close">
+
+X
+
+</button>
+
+</div>
+
+
+
+
+
+
+
+<!-- FUSION -->
+
+<div id="fusionPanel" class="panel hidden">
+
+
+<h1>
+
+Fusion Chamber
+
+</h1>
+
+
+<div id="fusionMachines">
+
+
+<div class="tube">
+
+</div>
+
+<div class="tube">
+
+</div>
+
+<div class="tube">
+
+</div>
+
+<div class="tube">
+
+</div>
+
+<div class="tube">
+
+</div>
+
+
+</div>
+
+
+<div id="fusionEgg">
+
+</div>
+
+
+<button id="fuseBtn">
+
+FUSE
+
+</button>
+
+
+<button class="close">
+
+X
+
+</button>
+
+</div>
+
+
+
+
+
+
+
+<!-- Champion League -->
+
+<div id="championPanel"
+
+class="panel hidden">
+
+<h1>
+
+Champion League
+
+</h1>
+
+<p>
+
+Unlocked at Level 28
+
+</p>
+
+
+<div id="championContent">
+
+Carnothereus Rex
+
+Tyrannospinus
+
+Argentinosaurus
+
+Future Godly Hybrids
+
+</div>
+
+
+<button class="close">
+
+X
+
+</button>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<script src="js/dinosaurs.js"></script>
+
+<script src="js/buildings.js"></script>
+
+<script src="js/decorations.js"></script>
+
+<script src="js/stages.js"></script>
+
+<script src="js/economy.js"></script>
+
+<script src="js/battle.js"></script>
+
+<script src="js/fusion.js"></script>
+
+<script src="js/leagues.js"></script>
+
+<script src="js/save.js"></script>
+
+<script src="js/game.js"></script>
+
+<script src="js/main.js"></script>
+
+
+
 </body>
+
 </html>
